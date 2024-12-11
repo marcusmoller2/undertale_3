@@ -5,6 +5,9 @@ armor = "bandage"
 def contains_health_potion(inventory_string):
     items = inventory_string.split(", ")
     return "health potion" in items and len(items) > 1
+def contains_pumpkin_pie(inventory_string):
+    items = inventory_string.split(", ")
+    return "pumpa paj" in items and len(items) > 1
 def combat(enemytype):
     if helditem == "kniv":
         self_attack = 10
@@ -56,6 +59,15 @@ def combat(enemytype):
                     self_defense = self_defense + 10
                     substring_to_remove = "health potion, "
                     inventory = inventory.replace(substring_to_remove, "")
+                else:
+                    print(f"du har inga {item}")
+            elif item.lower == "pumpa paj":
+                if contains_pumpkin_pie(inventory) == True:
+                     print("du använde den")
+                    self_defense = self_defense + 40
+                    substring_to_remove = "pumpa paj, "
+                    inventory = inventory.replace(substring_to_remove, "")
+
 
             
             
